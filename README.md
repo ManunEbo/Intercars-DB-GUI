@@ -58,7 +58,7 @@ i.e. they are coded with the procedures and triggers in mind; such that when the
 procedures and triggers transport the ready data to their final destination.<br>
 
 For data retrieval, python codes are used to pull raw tabulated data and summaries from the database<br>
-then it displays the outputs on the GUI via tabs for viewing. Example illustrations can be found on <a href="">2. Sample GUI Illustrations</a>
+then it displays the outputs on the GUI via tabs for viewing. Example illustrations can be found on <a href="https://github.com/ManunEbo/Intercars-DB-GUI/tree/master/2.%20Sample%20GUI%20Illustrations">2. Sample GUI Illustrations</a>
 
 <p>
 
