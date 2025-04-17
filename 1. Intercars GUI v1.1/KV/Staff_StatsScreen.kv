@@ -1,0 +1,476 @@
+<Staff_StatsScreen>
+    Screen:
+        TabbedPanel:
+            do_default_tab: False
+            tab_width: self.parent.width / 10
+
+            TabbedPanelItem:
+                text: "All of the Options"
+                id: tab1_1
+
+                Screen:
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: (0.6,0.7)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        canvas.before:
+                            Color:
+                                rgba:(30/255, 31/255, 30/255,1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        padding: 19
+                        spacing: 19
+
+                        MDLabel:
+                            id: Garages_stats_lbl
+                            markup: True
+                            text: "[color=#76FF03][b]Staff statistics[/b][/color]"
+                            font_size: 40
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        ScrollView:
+                            size_hint_y: 0.75
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                            GridLayout:
+                                cols: 2
+                                padding: 10
+                                spacing: 10
+                                size_hint_y: None
+                                height: self.minimum_height
+                                pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                                row_force_default: True
+                                row_default_height: 40
+
+                                MDLabel:
+                                    id: Grg_Serv_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Staff details[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Deposit_all_data_lbl
+                                    text: "All Staff contact information"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Staff contact"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Staff_contact_details()
+
+                                MDLabel:
+                                    id: Grg_Serv_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Deposit all data by Staff[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Deposit_all_data_lbl
+                                    text: "Deposit all data by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Deposit by staff"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Deposit_all_data_by_staff()
+
+                                MDLabel:
+                                    id: Deposit_freq_and_amount_lbl
+                                    text: "Deposit frequency & amount total by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Deposit freq & amount"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Deposit_freq_amount_by_staff()
+
+                                MDLabel:
+                                    id: Deposit_freq_and_amount_by_Make_lbl
+                                    text: "Deposit frequency & amount total by staff and Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Deposit freq & amount by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Deposit_freq_amount_by_staff_Make()
+
+                                MDLabel:
+                                    id: Deposit_freq_and_amount_by_Model_lbl
+                                    text: "Deposit frequency & amount total by staff and Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Deposit freq & amount by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Deposit_freq_amount_by_staff_Model()
+
+                                # Fiscal deposit
+                                MDLabel:
+                                    id: Grg_Serv_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Fiscal deposit data by Staff[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Fiscal_Deposit_all_data_lbl
+                                    text: "Fiscal deposit data by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal deposit by staff"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Deposit_data_by_staff()
+
+                                MDLabel:
+                                    id: Fiscal_Deposit_freq_and_amount_lbl
+                                    text: "Fiscal deposit frequency & amount total by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal deposit freq & amount"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Deposit_freq_amount_by_staff()
+
+                                MDLabel:
+                                    id: Fiscal_deposit_freq_and_amount_by_Make_lbl
+                                    text: "Fiscal deposit frequency & amount total by staff and Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal deposit freq & amount by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Deposit_freq_amount_by_staff_Make()
+
+                                MDLabel:
+                                    id: Fiscal_deposit_freq_and_amount_by_Model_lbl
+                                    text: "Fiscal deposit frequency & amount total by staff and Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal deposit freq & amount by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Deposit_freq_amount_by_staff_Model()
+
+                                MDLabel:
+                                    id: Staff_Sales_Stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Sale all data by Staff[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Sale_all_data_lbl
+                                    text: "Sale all data by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Sale by staff"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Sale_all_data_by_Staff()
+
+                                MDLabel:
+                                    id: Sale_freq_and_amount_lbl
+                                    text: "Sale frequency & amount total by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Sale freq & amount"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Sale_freq_amount_by_staff()
+
+                                MDLabel:
+                                    id: Sale_freq_and_amount_by_Make_lbl
+                                    text: "Sale frequency & amount total by staff and Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Sale freq & amount by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Sale_freq_amount_by_staff_Make()
+
+                                MDLabel:
+                                    id: Sale_freq_and_amount_by_Model_lbl
+                                    text: "Sale frequency & amount total by staff and Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Sale freq & amount by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Sale_freq_amount_by_staff_Model()
+
+                                MDLabel:
+                                    id: Staff_Sale_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Fiscal sale data by Staff[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Fiscal_Sale_data_lbl
+                                    text: "Fiscal Sale data by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal Sale by staff"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Sale_data_by_staff()
+
+                                MDLabel:
+                                    id: Fiscal_Sale_freq_and_amount_lbl
+                                    text: "Fiscal Sale frequency & amount total by staff"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal Sale freq & amount"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Sale_freq_amount_by_staff()
+
+                                MDLabel:
+                                    id: Fiscal_Sale_freq_and_amount_by_Make_lbl
+                                    text: "Fiscal Sale frequency & amount total by staff and Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal Sale freq & amount by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Sale_freq_amount_by_staff_Make()
+
+                                MDLabel:
+                                    id: Fiscal_Sale_freq_and_amount_by_Model_lbl
+                                    text: "Fiscal sale frequency & amount total by staff and Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal sale freq & amount by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Sale_freq_amount_by_staff_Model()
+
+
+
+
+
+                    Widget:
+                    Widget:
+                    Widget:
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: (0.6,0.1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.1}
+                        canvas.before:
+                            Color:
+                                rgba:(30/255, 31/255, 30/255,1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        padding: 19
+                        spacing: 19
+                        GridLayout:
+                            cols: 2
+                            padding: 10
+                            spacing: 10
+                            size_hint_y: None
+                            height: self.minimum_height
+                            pos_hint: {"center_x": 0.8, "center_y": 0.3}
+                            row_force_default: True
+                            row_default_height: 40
+
+                            MDLabel:
+                                id: MenuScreen_lbl
+                                text: "Go back to Menu Screen"
+                                font_size: 14
+                                halign: 'left'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                size_hint_x: None
+                                width: 200
+
+                            MDRoundFlatButton:
+                                text: "Menu screen"
+                                font_size: 12
+                                pos_hint: {"center_x": 0.5}
+                                on_release:
+                                    root.chng_Screen("menuscreen")
+
+            TabbedPanelItem:
+                text: "Data"
+                id: Data_id
+
+            TabbedPanelItem:
+                text: "Chart 1"
+                id: chart1
+
+            TabbedPanelItem:
+                text: "Chart 2"
+                id: chart2
+
+            TabbedPanelItem:
+                text: "Chart 3"
+                id: chart3
+
+            TabbedPanelItem:
+                text: "Graph 1"
+                id: Graph1
+
+            TabbedPanelItem:
+                text: "Graph 2"
+                id: Graph2
+
+            TabbedPanelItem:
+                text: "Graph 3"
+                id: Graph3

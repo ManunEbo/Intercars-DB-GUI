@@ -1,0 +1,288 @@
+<MDTextFieldRound>
+    normal_color: app.theme_cls.accent_color
+    color_active:  0, 1, 0, 1
+
+<StaffScreen>:
+    Screen:
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (0.6,0.7)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            canvas.before:
+                Color:
+                    rgba:(30/255, 31/255, 30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            padding: 19
+            spacing: 19
+
+            MDLabel:
+                id: Staff_lbl
+                text: "Staff"
+                font_size: 40
+                halign: 'center'
+                markup: True
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                size_hint_y: 0.75
+                do_scroll_x: False
+                do_scroll_y: True
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                GridLayout:
+                    cols: 2
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                    row_force_default: True
+                    row_default_height: 40
+
+                    MDLabel:
+                        id: Fname_lbl
+                        text: "First name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Fname_textf
+                        hint_text: "First name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Mname_lbl
+                        text: "Middle name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Mname_textf
+                        hint_text: "Middle name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Lname_lbl
+                        text: "Last name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Lname_textf
+                        hint_text: "Last name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Passwd_lbl
+                        text: "Password"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Passwd_textf
+                        hint_text: "set password"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+                        password: True
+
+                    MDLabel:
+                        id: Passwd_confirm_lbl
+                        text: "Confirm Password"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Passwd_confirm_textf
+                        hint_text: "Confirm password"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+                        password: True
+
+
+                    MDLabel:
+                        id: Secrete_code_lbl
+                        text: "Secrete code"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Secrete_code_textf
+                        hint_text: "Secrete code"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+                        password: True
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"center_x": 0.2}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.chng_Screen("menuscreen")
+
+        MDRoundFlatButton:
+            text: "Password reset"
+            font_size: 12
+            pos_hint: {"center_x": 0.4}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.password_Reset()
+
+        MDRoundFlatButton:
+            text: "Disable password"
+            font_size: 12
+            pos_hint: {"center_x": 0.6}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.disable_password()
+
+        MDRoundFlatButton:
+            text: "Next"
+            font_size: 12
+            pos_hint: {"center_x": 0.8}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.verify()
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+
+        MDNavigationLayout:
+            ScreenManager:
+                id: menu_mnger
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        MDToolbar:
+                            title: 'Staff'
+                            anchor_title: "center"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            elevation: 10
+
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                elevation: 10
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'Uploads'
+                        font_style: 'Caption'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Vehicle'
+                                IconLeftWidget:
+                                    icon: 'car'
+
+                            OneLineIconListItem:
+                                text: 'Customer'
+                                IconLeftWidget:
+                                    icon: 'human-queue'
+
+                            OneLineIconListItem:
+                                text: 'Staff'
+                                IconLeftWidget:
+                                    icon: 'human-capacity-increase'
+
+                            OneLineIconListItem:
+                                text: 'Auction'
+                                IconLeftWidget:
+                                    icon: 'human-greeting'
+
+                            OneLineIconListItem:
+                                text: 'Garage'
+                                IconLeftWidget:
+                                    icon: 'engine'
+
+                            OneLineIconListItem:
+                                text: 'Deposit & Sale'
+                                IconLeftWidget:
+                                    icon: 'cash-multiple'
+
+                            OneLineIconListItem:
+                                text: 'Operation'
+                                IconLeftWidget:
+                                    icon: 'lighthouse-on'
+
+                            MDLabel:
+                                text: 'Analytics'
+                                font_style: 'Caption'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+                            OneLineIconListItem:
+                                text: 'Data'
+                                IconLeftWidget:
+                                    icon: 'facebook'
+
+                            OneLineIconListItem:
+                                text: 'Graph'
+                                IconLeftWidget:
+                                    icon: 'auto-upload'
+
+                            OneLineIconListItem:
+                                text: 'Summary'
+                                IconLeftWidget:
+                                    icon: 'logout'

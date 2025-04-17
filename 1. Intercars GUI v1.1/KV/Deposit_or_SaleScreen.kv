@@ -1,0 +1,227 @@
+<Deposit_or_SaleScreen>:
+    Screen:
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (0.6,0.8)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            canvas.before:
+                Color:
+                    rgba:(30/255, 31/255, 30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            padding: 19
+            spacing: 19
+
+            MDLabel:
+                id: Deposit_sale_options
+                text: "Deposit or Sale options"
+                font_size: 40
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                size_hint_y: 0.75
+                do_scroll_x: False
+                do_scroll_y: True
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                GridLayout:
+                    cols: 2
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                    row_force_default: True
+                    row_default_height: 40
+
+                    MDLabel:
+                        id: vehicle_selection_id
+                        text: "Select vehicle"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: veh_select_spin_id
+                        size_hint: None, None
+                        size: (240,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: root.vehicle_list
+                        on_text: root.selected_vehicle(veh_select_spin_id.text)
+
+                    MDLabel:
+                        id: Dep_Sel_selection_id
+                        text: "Deposit or Sale"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Dep_Sal_spin_id
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["Deposit","Sale only","Sale after Deposit"]
+                        on_text: root.Deposit_sale_option(Dep_Sal_spin_id.text)
+
+                    MDLabel:
+                        id: Payment_selection_id
+                        text: "Payment Option"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: payment_option_spin_id
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["One Payment","Two Payments","Three Payments"]
+                        on_text: root.payment_method_selection(payment_option_spin_id.text)
+
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"x": 0.4, "y": 0.02}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.chng_Screen("cust_address")
+
+        MDRoundFlatButton:
+            text: "Next"
+            font_size: 12
+            pos_hint: {"x": 0.55,"y": 0.02}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.Dep_Sal_options()
+
+        MDNavigationLayout:
+            ScreenManager:
+                id: menu_mnger
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        MDToolbar:
+                            title: 'Customer'
+                            anchor_title: "center"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            elevation: 10
+
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                elevation: 10
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'Uploads'
+                        font_style: 'Caption'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Vehicle'
+                                IconLeftWidget:
+                                    icon: 'car'
+
+                            OneLineIconListItem:
+                                text: 'Customer'
+                                IconLeftWidget:
+                                    icon: 'human-queue'
+
+                            OneLineIconListItem:
+                                text: 'Staff'
+                                IconLeftWidget:
+                                    icon: 'human-capacity-increase'
+
+                            OneLineIconListItem:
+                                text: 'Auction'
+                                IconLeftWidget:
+                                    icon: 'human-greeting'
+
+                            OneLineIconListItem:
+                                text: 'Garage'
+                                IconLeftWidget:
+                                    icon: 'engine'
+
+                            OneLineIconListItem:
+                                text: 'Deposit & Sale'
+                                IconLeftWidget:
+                                    icon: 'cash-multiple'
+
+                            OneLineIconListItem:
+                                text: 'Operation'
+                                IconLeftWidget:
+                                    icon: 'lighthouse-on'
+
+                            MDLabel:
+                                text: 'Analytics'
+                                font_style: 'Caption'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+                            OneLineIconListItem:
+                                text: 'Data'
+                                IconLeftWidget:
+                                    icon: 'facebook'
+
+                            OneLineIconListItem:
+                                text: 'Graph'
+                                IconLeftWidget:
+                                    icon: 'auto-upload'
+
+                            OneLineIconListItem:
+                                text: 'Summary'
+                                IconLeftWidget:
+                                    icon: 'logout'

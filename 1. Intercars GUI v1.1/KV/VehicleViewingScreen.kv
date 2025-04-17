@@ -1,0 +1,373 @@
+<MDTextFieldRound>
+    normal_color: app.theme_cls.accent_color
+    color_active:  0, 1, 0, 1
+
+<VehicleViewingScreen>:
+    Screen:
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (0.6,0.7)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            canvas.before:
+                Color:
+                    rgba:(30/255, 31/255, 30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            padding: 19
+            spacing: 19
+
+            MDLabel:
+                id: Vehicle_viewing_lbl
+                text: "Vehicle viewing"
+                font_size: 40
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                size_hint_y: 0.75
+                do_scroll_x: False
+                do_scroll_y: True
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                GridLayout:
+                    cols: 2
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                    row_force_default: True
+                    row_default_height: 40
+
+                    MDLabel:
+                        id: Vehicle_v_lbl
+                        text: "Inhouse Vehicle"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    Spinner:
+                        id: Vehicle_v_select_spin_id
+                        size_hint: None, None
+                        size: (240,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: root.Vehicle_v_list
+                        on_text: root.selected_vehicle_v(Vehicle_v_select_spin_id.text)
+
+                    MDLabel:
+                        id: Nbr_Vehicles_viewed_lbl
+                        text: "Nbr vehicles viewed"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Nbr_Vehicles_viewed_textf
+                        hint_text: "Nbr vehicles viewed"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Customer_sex_lbl
+                        text: "Customer sex"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Customer_sex_spin_id
+                        pos: self.parent.pos
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["F","M"]
+                        on_text: root.Customer_sex_v(Customer_sex_spin_id.text)
+
+                    MDLabel:
+                        id: Customer_Age_Bracket_lbl
+                        text: "Customer age bracket"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    Spinner:
+                        id: Viewing_agegroup_spnr
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Age-group"
+                        halign: 'left'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["17 to 20","21 to 24", "25 to 29", "30 to 34", "35 to 39", "40 to 49", "50 to 59", "60+"]
+                        on_text: root.Viewing_agegroup(Viewing_agegroup_spnr.text)
+
+                    MDLabel:
+                        id: City_or_village_lbl
+                        text: "City or village"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: City_or_village_textf
+                        hint_text: "City or Village"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Viewing_date_lbl
+                        text: "Viewing date"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Viewing_date_picker()
+
+                    MDLabel:
+                        id: Viewing_time_id
+                        text: "Viewing time"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Open Time Picker"
+                        font_size: 12
+                        on_release:
+                            root.show_viewing_time_picker()
+
+                    MDLabel:
+                        id: Deposit_Flag_lbl
+                        text: "Deposit flag"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Deposit_Flag_spin_id
+                        pos: self.parent.pos
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["0","1"]
+                        on_text: root.Deposit_Flag_v(Deposit_Flag_spin_id.text)
+
+                    MDLabel:
+                        id: Sale_Flag_lbl
+                        text: "Sale flag"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Sale_Flag_spin_id
+                        pos: self.parent.pos
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["0","1"]
+                        on_text: root.Sale_Flag_v(Sale_Flag_spin_id.text)
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"center_x": 0.4}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.chng_Screen("vehiclescreen")
+
+        MDRoundFlatButton:
+            text: "Submit"
+            font_size: 12
+            pos_hint: {"center_x": 0.6}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.Submit_Viewing()
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+
+        MDNavigationLayout:
+            ScreenManager:
+                id: menu_mnger
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        MDToolbar:
+                            title: 'Customer'
+                            anchor_title: "center"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            elevation: 10
+
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                elevation: 10
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'Uploads'
+                        font_style: 'Caption'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Vehicle'
+                                IconLeftWidget:
+                                    icon: 'car'
+
+                            OneLineIconListItem:
+                                text: 'Customer'
+                                IconLeftWidget:
+                                    icon: 'human-queue'
+
+                            OneLineIconListItem:
+                                text: 'Staff'
+                                IconLeftWidget:
+                                    icon: 'human-capacity-increase'
+
+                            OneLineIconListItem:
+                                text: 'Auction'
+                                IconLeftWidget:
+                                    icon: 'human-greeting'
+
+                            OneLineIconListItem:
+                                text: 'Garage'
+                                IconLeftWidget:
+                                    icon: 'engine'
+
+                            OneLineIconListItem:
+                                text: 'Deposit & Sale'
+                                IconLeftWidget:
+                                    icon: 'cash-multiple'
+
+                            OneLineIconListItem:
+                                text: 'Operation'
+                                IconLeftWidget:
+                                    icon: 'lighthouse-on'
+
+                            MDLabel:
+                                text: 'Analytics'
+                                font_style: 'Caption'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+                            OneLineIconListItem:
+                                text: 'Data'
+                                IconLeftWidget:
+                                    icon: 'facebook'
+
+                            OneLineIconListItem:
+                                text: 'Graph'
+                                IconLeftWidget:
+                                    icon: 'auto-upload'
+
+                            OneLineIconListItem:
+                                text: 'Summary'
+                                IconLeftWidget:
+                                    icon: 'logout'

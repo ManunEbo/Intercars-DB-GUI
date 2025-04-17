@@ -1,0 +1,664 @@
+<MDTextFieldRound>
+    normal_color: app.theme_cls.accent_color
+    color_active:  0, 1, 0, 1
+
+<V5CScreen>:
+    Screen:
+
+        MDCard:
+            size_hint: None, None
+            size: 800, 700
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            elevation: 10
+            padding: 15
+            spacing: 15
+
+            orientation: "vertical"
+
+            MDLabel:
+                id: V5C_lbl1
+                text: "V5C"
+                font_size: 40
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                size_hint_y: 0.75
+                do_scroll_x: False
+                do_scroll_y: True
+                pos_hint: {"center_x": 0.7, "center_y": 0.5}
+                GridLayout:
+                    cols: 2
+                    padding: 10
+                    spacing: 20
+                    size_hint_y: None
+                    height: self.minimum_height
+                    pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                    row_force_default: True
+                    row_default_height: 40
+
+                    MDLabel:
+                        id: Regnum_lbl
+                        text: "Registration Number"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Regnum_textf
+                        hint_text: "Reg number"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        #md_bg_color: app.theme_cls.primary_palette
+                        foreground_color:(35/255, 46/255, 35/255,1)
+
+                    MDLabel:
+                        id: Prev_regnum_lbl
+                        text: "Previous registration number"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Prev_regnum_textf
+                        hint_text: "Previous reg number"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        normal_color: app.theme_cls.accent_color
+                        color_active:  0, 1, 0, 1
+
+                    MDLabel:
+                        id: Document_Reference_lbl
+                        text: "Document Reference number"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Document_Reference_textf
+                        hint_text: "Document reference"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        normal_color: app.theme_cls.accent_color
+                        color_active:  0, 1, 0, 1
+
+                    MDLabel:
+                        id: First_reg_lbl
+                        text: "First Registration"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        size_hint_x: None
+                        width: 300
+                        on_release:
+                            root.First_Reg_picker()
+
+                    MDLabel:
+                        id: First_reg_uk_lbl
+                        text: "First Registration UK"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.First_Reg_uk_picker()
+
+                    MDLabel:
+                        id: Make_lbl
+                        text: "Make"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Make_textf
+                        hint_text: "Vehicle Make"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Model_lbl
+                        text: "Model"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Model_textf
+                        hint_text: "Vehicle Model"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Bodytype_lbl
+                        text: "Body type"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Bodytype_textf
+                        hint_text: "Body type"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: TaxClass_lbl
+                        text: "Vehicle Tax Class"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: TaxClass_textf
+                        hint_text: "Tax Class"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: FuelType_lbl
+                        text: "Fuel Type"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: FuelType_textf
+                        hint_text: "Fuel Type"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: number_Seats_lbl
+                        text: "Number of seats"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: number_Seats_textf
+                        hint_text: "Number of seats"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Vehicle_Category_lbl
+                        text: "Vehicle category"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Vehicle_Category_textf
+                        hint_text: "Vehicle category"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Colour_lbl
+                        text: "Colour"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Colour_textf
+                        hint_text: "Colour"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Logbook_Issued_date_lbl
+                        text: "Logbook issued date"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Logbook_issued_date_picker()
+
+                    MDLabel:
+                        id: Cylinder_capacity_lbl
+                        text: "Cylinder capacity"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Cylinder_capacity_textf
+                        hint_text: "Cylinder_capacity"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: nbr_Prev_Owners_lbl
+                        text: "Number of previous owners"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: nbr_Prev_Owners_textf
+                        hint_text: "Number of previous owners"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner1_Name_lbl
+                        text: "Owner1 Name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner1_Name_textf
+                        hint_text: "Owner1 Name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner1_Address_lbl
+                        text: "Owner1 Address"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner1_Address_textf
+                        hint_text: "Owner1 Address"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner1_Acq_date_lbl
+                        text: "Owner1 Acq date"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Owner1_Acq_date_picker()
+
+                    MDLabel:
+                        id: Owner2_Name_lbl
+                        text: "Owner2 Name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner2_Name_textf
+                        hint_text: "Owner2 Name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner2_Address_lbl
+                        text: "Owner2 Address"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner2_Address_textf
+                        hint_text: "Owner2 Address"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner2_Acq_date_lbl
+                        text: "Owner2 Acq date"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Owner2_Acq_date_picker()
+
+                    MDLabel:
+                        id: Owner3_Name_lbl
+                        text: "Owner3 Name"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner3_Name_textf
+                        hint_text: "Owner3 Name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner3_Address_lbl
+                        text: "Owner3 Address"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner3_Address_textf
+                        hint_text: "Owner3 Address"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner3_Acq_date_lbl
+                        text: "Owner3 Acq date"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Owner3_Acq_date_picker()
+
+                    MDLabel:
+                        id: Owner4_Name_lbl
+                        text: "Owner4 Name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner4_Name_textf
+                        hint_text: "Owner4 Name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner4_Address_lbl
+                        text: "Owner4 Address"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Owner4_Address_textf
+                        hint_text: "Owner4 Address"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+
+                    MDLabel:
+                        id: Owner4_Acq_date_lbl
+                        text: "Owner4 Acq date"
+                        font_size: 14
+                        markup: True
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Owner4_Acq_date_picker()
+
+
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"center_x": 0.4}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.chng_Screen("vehiclescreen")
+
+        MDRoundFlatButton:
+            text: "Submit"
+            font_size: 12
+            pos_hint: {"center_x": 0.6}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.Submit_V5C()
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+
+        MDNavigationLayout:
+            ScreenManager:
+                id: menu_mnger
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        MDToolbar:
+                            title: 'Customer'
+                            anchor_title: "center"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            elevation: 10
+
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                elevation: 10
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'Uploads'
+                        font_style: 'Caption'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Vehicle'
+                                IconLeftWidget:
+                                    icon: 'car'
+
+                            OneLineIconListItem:
+                                text: 'Customer'
+                                IconLeftWidget:
+                                    icon: 'human-queue'
+
+                            OneLineIconListItem:
+                                text: 'Staff'
+                                IconLeftWidget:
+                                    icon: 'human-capacity-increase'
+
+                            OneLineIconListItem:
+                                text: 'Auction'
+                                IconLeftWidget:
+                                    icon: 'human-greeting'
+
+                            OneLineIconListItem:
+                                text: 'Garage'
+                                IconLeftWidget:
+                                    icon: 'engine'
+
+                            OneLineIconListItem:
+                                text: 'Deposit & Sale'
+                                IconLeftWidget:
+                                    icon: 'cash-multiple'
+
+                            OneLineIconListItem:
+                                text: 'Operation'
+                                IconLeftWidget:
+                                    icon: 'lighthouse-on'
+
+                            MDLabel:
+                                text: 'Analytics'
+                                font_style: 'Caption'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+                            OneLineIconListItem:
+                                text: 'Data'
+                                IconLeftWidget:
+                                    icon: 'facebook'
+
+                            OneLineIconListItem:
+                                text: 'Graph'
+                                IconLeftWidget:
+                                    icon: 'auto-upload'
+
+                            OneLineIconListItem:
+                                text: 'Summary'
+                                IconLeftWidget:
+                                    icon: 'logout'

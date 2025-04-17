@@ -1,0 +1,356 @@
+<Garages_StatsScreen>
+    Screen:
+        TabbedPanel:
+            do_default_tab: False
+            tab_width: self.parent.width / 10
+
+            TabbedPanelItem:
+                text: "All of the Options"
+                id: tab1_1
+
+                Screen:
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: (0.6,0.7)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        canvas.before:
+                            Color:
+                                rgba:(30/255, 31/255, 30/255,1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        padding: 19
+                        spacing: 19
+
+                        MDLabel:
+                            id: Garages_stats_lbl
+                            markup: True
+                            text: "[color=#76FF03][b]Garages statistics[/b][/color]"
+                            font_size: 40
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        ScrollView:
+                            size_hint_y: 0.75
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                            GridLayout:
+                                cols: 2
+                                padding: 10
+                                spacing: 10
+                                size_hint_y: None
+                                height: self.minimum_height
+                                pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                                row_force_default: True
+                                row_default_height: 40
+
+                                MDLabel:
+                                    id: Grg_Serv_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Garages service history[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Grg_contact_info_lbl
+                                    text: "All garages contact information"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garages contact"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garages_contact_details()
+
+                                MDLabel:
+                                    id: Grg_Service_history_lbl
+                                    text: "All garages service history"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garages service history"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garages_service_history()
+
+                                MDLabel:
+                                    id: Grg_Service_history_freq_and_pri_lbl
+                                    text: "Garage type service history frequencies & price"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garage type service freq & price"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garages_service_history_freq_and_sum()
+
+                                MDLabel:
+                                    id: Grg_comp_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Garage service companies history[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Grg_Service_history_freq_and_pri_lbl
+                                    text: "Garage companies service history frequencies & price"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garage companies service freq & price"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garage_Entities_service_history_freq_and_sum()
+
+                                MDLabel:
+                                    id: Grg_Serv_hist_freq_and_pri_by_Make_lbl
+                                    text: "Garage companies service history frequencies & price by Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garage companies freq & price by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garage_Entities_service_freq_and_sum_by_Make()
+
+                                MDLabel:
+                                    id: Grg_Serv_hist_freq_and_pri_by_Model_lbl
+                                    text: "Garage companies service history frequencies & price by Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Garage companies freq & price by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Garage_Entities_service_freq_and_sum_by_Model()
+
+                                MDLabel:
+                                    id: Grg_Serv_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Fiscal garages service[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Fisc_Grg_Service_lbl
+                                    text: "Fiscal garages service data"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal garages service"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_garages_service()
+
+                                MDLabel:
+                                    id: Fisc_Grg_Service_freq_and_pri_lbl
+                                    text: "Fiscal garage type service frequencies & price"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal garage type service freq & price"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_grg_serv_freq_price()
+
+                                MDLabel:
+                                    id: Grg_comp_stats_lbl1
+                                    markup: True
+                                    text: "[color=#76FF03][b]Fiscal garage service companies[/b][/color]"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                Widget:
+
+                                MDLabel:
+                                    id: Fisc_Grg_Service_freq_and_pri_lbl
+                                    text: "Fiscal garage companies service frequencies & price"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal garage companies freq & price"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_garage_service_comp_freq_and_pri()
+
+                                MDLabel:
+                                    id: Fisc_grg_Serv_freq_and_pri_by_Make_lbl
+                                    text: "Fiscal garage companies service frequencies & price by Make"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal freq & price by Make"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Grg_serv_freq_and_pri_by_Make()
+
+                                MDLabel:
+                                    id: Fisc_Grg_Serv_freq_and_pri_by_Model_lbl
+                                    text: "Fiscal garage companies service frequencies & price by Model"
+                                    font_size: 14
+                                    halign: 'left'
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    size_hint_x: None
+                                    width: 200
+
+                                MDRoundFlatButton:
+                                    text: "Fiscal freq & price by Model"
+                                    font_size: 12
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release:
+                                        root.Fiscal_Grg_serv_freq_and_pri_by_Model()
+
+                    Widget:
+                    Widget:
+                    Widget:
+                    BoxLayout:
+                        orientation: "vertical"
+                        size_hint: (0.6,0.1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.1}
+                        canvas.before:
+                            Color:
+                                rgba:(30/255, 31/255, 30/255,1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        padding: 19
+                        spacing: 19
+                        GridLayout:
+                            cols: 2
+                            padding: 10
+                            spacing: 10
+                            size_hint_y: None
+                            height: self.minimum_height
+                            pos_hint: {"center_x": 0.8, "center_y": 0.3}
+                            row_force_default: True
+                            row_default_height: 40
+
+                            MDLabel:
+                                id: MenuScreen_lbl
+                                text: "Go back to Menu Screen"
+                                font_size: 14
+                                halign: 'left'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                size_hint_x: None
+                                width: 200
+
+                            MDRoundFlatButton:
+                                text: "Menu screen"
+                                font_size: 12
+                                pos_hint: {"center_x": 0.5}
+                                on_release:
+                                    root.chng_Screen("menuscreen")
+
+            TabbedPanelItem:
+                text: "Data"
+                id: Data_id
+
+            TabbedPanelItem:
+                text: "Chart 1"
+                id: chart1
+
+            TabbedPanelItem:
+                text: "Chart 2"
+                id: chart2
+
+            TabbedPanelItem:
+                text: "Chart 3"
+                id: chart3
+
+            TabbedPanelItem:
+                text: "Graph 1"
+                id: Graph1
+
+            TabbedPanelItem:
+                text: "Graph 2"
+                id: Graph2
+
+            TabbedPanelItem:
+                text: "Graph 3"
+                id: Graph3

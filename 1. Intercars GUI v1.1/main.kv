@@ -1,0 +1,249 @@
+#:include KV/WelcomeScreen.kv
+#:include KV/MenuScreen.kv
+#:include KV/VehicleScreen.kv
+#:include KV/CustomerScreen.kv
+#:include KV/Cust_AddressScreen.kv
+#:include KV/Deposit_or_SaleScreen.kv
+#:include KV/Deposit_in_one_Screen.kv
+#:include KV/Deposit_in_two_Screen.kv
+#:include KV/Deposit_in_three_Screen.kv
+#:include KV/Sale_in_one_Screen.kv
+#:include KV/Sale_in_two_Screen.kv
+#:include KV/Sale_in_three_Screen.kv
+#:include KV/Sale_with_Deposit_in_one_Screen.kv
+#:include KV/Sale_with_Deposit_in_two_Screen.kv
+#:include KV/Sale_with_Deposit_in_three_Screen.kv
+#:include KV/V5CScreen.kv
+#:include KV/MOTHistoryScreen.kv
+#:include KV/MOTRefusalScreen.kv
+#:include KV/ServiceHistoryScreen.kv
+#:include KV/MileageHistoryScreen.kv
+#:include KV/CallLogScreen.kv
+#:include KV/VehicleViewingScreen.kv
+#:include KV/StaffScreen.kv
+#:include KV/AuctionMenuScreen.kv
+#:include KV/AuctionScreen.kv
+#:include KV/VendorScreen.kv
+#:include KV/FundScreen.kv
+#:include KV/Auction_invoice.kv
+#:include KV/GarageScreen.kv
+#:include KV/Garages_StatsScreen.kv
+#:include KV/ElectricalScreen.kv
+#:include KV/MechanicScreen.kv
+#:include KV/MOT_GarageScreen.kv
+#:include KV/CarwashScreen.kv
+#:include KV/OperationScreen.kv
+#:include KV/Op_serviceScreen.kv
+#:include KV/Send_to_ServiceScreen.kv
+#:include KV/Return_from_ServiceScreen.kv
+#:include KV/Invoice_for_ServiceScreen.kv
+#:include KV/Op_Service_ReceiptScreen.kv
+#:include KV/Op_Bank_TransferScreen.kv
+#:include KV/Op_Miscellaneous_ReceiptScreen.kv
+#:include KV/Staff_details_Screen.kv
+#:include KV/Password_reset_Screen.kv
+#:include KV/Disable_password_Screen.kv
+#:include KV/Auction_invoice_statsScreen.kv
+#:include KV/Vehicle_StatsScreen.kv
+#:include KV/Op_VAT_StatsScreen.kv
+#:include KV/Staff_StatsScreen.kv
+Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            id: screen_manager
+            size_hint: 1, 1
+            pos_hint: {"top": 1, "left": 1}
+            WelcomeScreen:
+                name: "welcomescreen"
+                id: welcome_screen
+            MenuScreen:
+                name: "menuscreen"
+                id: menu_screen
+
+            VehicleScreen:
+                name: "vehiclescreen"
+                id: vehicle_screen
+
+            Vehicle_StatsScreen:
+                name: "vehicle_stats_screen"
+                id: vehicle_stats_screen
+
+            CustomerScreen:
+                name: "customerscreen"
+                id: customer_screen
+
+            Cust_AddressScreen:
+                name: "cust_address"
+                id: cust_address_id
+
+            Deposit_or_SaleScreen:
+                name: "deposit_or_sale"
+                id: deposit_or_sale_id
+
+            Deposit_in_one_Screen:
+                name: "Deposit_in_one"
+                id: Deposit_in_one_id
+
+            Deposit_in_two_Screen:
+                name: "Deposit_in_two"
+                id: Deposit_in_two_id
+
+            Deposit_in_three_Screen:
+                name: "Deposit_in_three"
+                id: Deposit_in_three_id
+
+            Sale_in_one_Screen:
+                name: "Sale_in_one"
+                id: Sale_in_one_id
+
+            Sale_in_two_Screen:
+                name: "Sale_in_two"
+                id: Sale_in_two_id
+
+            Sale_in_three_Screen:
+                name: "Sale_in_three"
+                id: Sale_in_three_id
+
+            Sale_with_Deposit_in_one_Screen:
+                name: "Sale_with_deposit_1"
+                id: Sale_with_deposit_1_id
+
+            Sale_with_Deposit_in_two_Screen:
+                name: "Sale_with_deposit_2"
+                id: Sale_with_deposit_2_id
+
+            Sale_with_Deposit_in_three_Screen:
+                name: "Sale_with_deposit_3"
+                id: Sale_with_deposit_3_id
+
+            V5CScreen:
+                name: "v5c"
+                id: v5c_id
+
+            MOTHistoryScreen:
+                name: "mot_history"
+                id: mot_history_id
+
+            MOTRefusalScreen:
+                name: "mot_refusal"
+                id: mot_refusal_id
+
+            ServiceHistoryScreen:
+                name: "service_history"
+                id: service_history_id
+
+            MileageHistoryScreen:
+                name: "mileage_history"
+                id: mileage_history
+
+            CallLogScreen:
+                name: "call_log"
+                id: call_log_id
+
+            VehicleViewingScreen:
+                name: "vehicle_viewing"
+                id: vehicle_viewing_id
+
+            StaffScreen:
+                name: "staff_screen"
+                id: staff_screen_id
+
+            Staff_details_Screen:
+                name: "staff_details_screen"
+                id: staff_details_screen_id
+
+            Staff_StatsScreen:
+                name: "Staff_StatsScreen"
+                id: Staff_StatsScreen_id
+
+            Password_reset_Screen:
+                name: "password_reset_screen"
+                id: password_reset_screen_id
+
+            Disable_password_Screen:
+                name: "disable_password_screen"
+                id: disable_password_screen_id
+
+            AuctionMenuScreen:
+                name: "auction_menu_screen"
+                id: auction_menu_screen_id
+
+            AuctionScreen:
+                name: "auction_screen"
+                id: auction_screen_id
+
+            VendorScreen:
+                name: "vendor_screen"
+                id: vendor_screen_id
+
+            FundScreen:
+                name: "fund_screen"
+                id: fund_screen_id
+
+            Auction_invoice:
+                name: "auction_invoice"
+                id: auction_invoice_id
+
+            Auction_invoice_statsScreen:
+                name: "Auction_stats_screen"
+                id: auction_invoice_statsScreen_id
+
+            GarageScreen:
+                name: "garage_screen"
+                id: garage_screen_id
+
+            Garages_StatsScreen:
+                name: "Garages_StatsScreen"
+                id: Garages_StatsScreen_id
+
+            ElectricalScreen:
+                name: "electrical_screen"
+                id: electrical_screen_id
+
+            MechanicScreen:
+                name: "mechanic_screen"
+                id: mechanic_screen_id
+
+            MOT_GarageScreen:
+                name: "mot_garage_screen"
+                id: mot_garage_screen_id
+
+            CarwashScreen:
+                name: "car_wash_screen"
+                id: car_wash_screen_id
+
+            OperationScreen:
+                name: "operation_screen"
+                id: operation_screen_id
+
+            Op_serviceScreen:
+                name: "op_service_screen"
+                id: op_service_screen_id
+
+            Send_to_ServiceScreen:
+                name: "send_to_service_screen"
+                id: send_to_service_screen_id
+
+            Return_from_ServiceScreen:
+                name: "return_from_service_screen"
+                id: return_from_service_screen_id
+
+            Invoice_for_ServiceScreen:
+                name: "invoice_for_service_screen"
+                id: invoice_for_service_screen_id
+
+            Op_Service_ReceiptScreen:
+                name: "op_service_receipt_screen"
+                id: op_service_receipt_screen_id
+
+            Op_Bank_TransferScreen:
+                name: "op_bank_transfer_screen"
+                id: op_bank_transfer_screen_id
+
+            Op_Miscellaneous_ReceiptScreen:
+                name: "op_miscellaneous_receipt_screen"
+                id: op_miscellaneous_receipt_screen_id
+
+            Op_VAT_StatsScreen:
+                name: "Op_VAT_StatsScreen"
+                id: Op_VAT_StatsScreen_id

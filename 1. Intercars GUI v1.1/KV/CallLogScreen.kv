@@ -1,0 +1,334 @@
+<MDTextFieldRound>
+    normal_color: app.theme_cls.accent_color
+    color_active:  0, 1, 0, 1
+
+<CallLogScreen>:
+    Screen:
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (0.6,0.7)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            canvas.before:
+                Color:
+                    rgba:(30/255, 31/255, 30/255,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            padding: 19
+            spacing: 19
+
+            MDLabel:
+                id: Call_log_lbl
+                text: "Call log"
+                font_size: 40
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                size_hint_y: 0.75
+                do_scroll_x: False
+                do_scroll_y: True
+                pos_hint: {"center_x": 0.8, "center_y": 0.5}
+                GridLayout:
+                    cols: 2
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    pos_hint: {"center_x": 0.6, "center_y": 0.7}
+                    row_force_default: True
+                    row_default_height: 40
+
+                    MDLabel:
+                        id: Vehicle_l_lbl
+                        text: "Inhouse Vehicle"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    Spinner:
+                        id: Vehicle_l_select_spin_id
+                        size_hint: None, None
+                        size: (240,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: root.Vehicle_log_list
+                        on_text: root.selected_vehicle(Vehicle_l_select_spin_id.text)
+
+                    MDLabel:
+                        id: Name_lbl
+                        text: "Caller's name"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    MDTextFieldRound:
+                        id: Name_textf
+                        hint_text: "Caller's name"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Customer_sex_lbl
+                        text: "Caller sex"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Customer_sex_spin_id
+                        pos: self.parent.pos
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["F","M"]
+                        on_text: root.Customer_sex_log(Customer_sex_spin_id.text)
+
+                    MDLabel:
+                        id: Tel_lbl
+                        text: "Tel"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: Tel_textf
+                        hint_text: "Telephone number"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: City_or_village_lbl
+                        text: "City or village"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDTextFieldRound:
+                        id: City_or_village_textf
+                        hint_text: "City or Village"
+                        icon_right: "account"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 14
+
+                    MDLabel:
+                        id: Date_of_call_lbl
+                        text: "Date of call"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Select Date"
+                        font_size: 12
+                        on_release:
+                            root.Date_of_call_picker()
+
+                    MDLabel:
+                        id: Time_of_call_id
+                        text: "Time of call"
+                        font_size: 14
+                        halign: 'left'
+                        markup: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+                    MDRoundFlatButton:
+                        text: "Open Time Picker"
+                        font_size: 12
+                        on_release:
+                            root.show_time_of_call_picker()
+
+                    MDLabel:
+                        id: Deposit_flag_lbl
+                        text: "Deposit Flag"
+                        font_size: 14
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        size_hint_x: None
+                        width: 200
+
+
+                    Spinner:
+                        id: Deposit_flag_id
+                        pos: self.parent.pos
+                        size_hint: None, None
+                        size: (220,30)
+                        text: "Select"
+                        halign: 'center'
+                        background_normal: ''
+                        background_color: (0,0,0,0)
+                        canvas.before:
+                            Color:
+                                rgba:(125/255,185/255,219/255,1)
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [19]
+                        values: ["0","1"]
+                        on_text: root.Deposit_flag_extract(Deposit_flag_id.text)
+
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"center_x": 0.4}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.chng_Screen("vehiclescreen")
+
+        MDRoundFlatButton:
+            text: "Submit"
+            font_size: 12
+            pos_hint: {"center_x": 0.6}
+            padding: 15
+            elevation: 10
+            on_release:
+                root.Submit_Call_log()
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+            Widget:
+                size_hint_y: None
+                height: 30
+
+
+
+        MDNavigationLayout:
+            ScreenManager:
+                id: menu_mnger
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        MDToolbar:
+                            title: 'Customer'
+                            anchor_title: "center"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            elevation: 10
+
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                elevation: 10
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'Uploads'
+                        font_style: 'Caption'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Vehicle'
+                                IconLeftWidget:
+                                    icon: 'car'
+
+                            OneLineIconListItem:
+                                text: 'Customer'
+                                IconLeftWidget:
+                                    icon: 'human-queue'
+
+                            OneLineIconListItem:
+                                text: 'Staff'
+                                IconLeftWidget:
+                                    icon: 'human-capacity-increase'
+
+                            OneLineIconListItem:
+                                text: 'Auction'
+                                IconLeftWidget:
+                                    icon: 'human-greeting'
+
+                            OneLineIconListItem:
+                                text: 'Garage'
+                                IconLeftWidget:
+                                    icon: 'engine'
+
+                            OneLineIconListItem:
+                                text: 'Deposit & Sale'
+                                IconLeftWidget:
+                                    icon: 'cash-multiple'
+
+                            OneLineIconListItem:
+                                text: 'Operation'
+                                IconLeftWidget:
+                                    icon: 'lighthouse-on'
+
+                            MDLabel:
+                                text: 'Analytics'
+                                font_style: 'Caption'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+                            OneLineIconListItem:
+                                text: 'Data'
+                                IconLeftWidget:
+                                    icon: 'facebook'
+
+                            OneLineIconListItem:
+                                text: 'Graph'
+                                IconLeftWidget:
+                                    icon: 'auto-upload'
+
+                            OneLineIconListItem:
+                                text: 'Summary'
+                                IconLeftWidget:
+                                    icon: 'logout'
