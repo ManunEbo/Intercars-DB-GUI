@@ -40,8 +40,9 @@ All of this is made possible using python and sql in the background.
 <h4>KV code</h4>
 
 <p>
-The GUI frontend is designed with Kivy. The KV files are the codes for the various screens/pages that the user interacts with.<br>
-These screens are then linked with the python codes in the background, the backend, which either pulls data or displays data to and fro.
+The GUI frontend is designed with Kivy.<br>
+The KV files are the codes for the various screens/pages that the user interacts with.<br>
+These screens are then linked with the python codes in the background,<br>the backend, which either pulls data or displays data to and fro.
 
 </p>
 
@@ -50,12 +51,15 @@ These screens are then linked with the python codes in the background, the backe
 
 <p>
 
-The python code consists of classes and functions which are designed to interact with the GUI via the .kv files and the database.<br>
-Firstly, the python code pulls data from the GUI and performs any transformation necessary then sends it to the database.<br>
+The python code consists of classes and functions which are designed to interact with the GUI<br>
+via the .kv files and the database.<br>
+Firstly, the python code pulls data from the GUI and performs any transformation necessary<br>
+then sends it to the database.<br>
 
-The sql codes used for inserting data into the database, work with the procedures and triggers in the database<br>
-i.e. they are coded with the procedures and triggers in mind; such that when the data reaches the database the<br>
-procedures and triggers transport the ready data to their final destination.<br>
+The sql codes used for inserting data into the database, work with the procedures and triggers<br>
+in the database i.e. they are coded with the procedures and triggers in mind;<br>
+such that when the data reaches the database the procedures and triggers transport<br>
+the ready data to their final destination.<br>
 
 For data retrieval, python codes are used to pull raw tabulated data and summaries from the database<br>
 then it displays the outputs on the GUI via tabs for viewing. Example illustrations can be found on <a href="https://github.com/ManunEbo/Intercars-DB-GUI/tree/master/2.%20Sample%20GUI%20Illustrations">2. Sample GUI Illustrations</a>
