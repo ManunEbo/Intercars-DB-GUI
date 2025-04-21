@@ -1,4 +1,6 @@
-<h1>Intercars background</h1>
+<h1>Intercars DB GUI</h1>
+
+<h2>Intercars background</h2>
 <p>
 Intercars Leicester is an ambitious car dealership based in Leicester.<br>
 They are very active in auctions in the east and west midlands.<br>
@@ -7,7 +9,7 @@ improved to enable them to gain greater insight from the data they collect<br>
 which would in turn drive profitable decisions.
 </p>
 
-<h3>The project</h3>
+<h2>The project</h2>
 <p>
 Intercars Leicester were approached with the concept of migrating all their<br>
 data which at the time was kept in paper form into an on premises MySQL database<br>
@@ -19,7 +21,7 @@ with Python and Kivy interacting with the MySQL database.
 
 </p>
 
-<h4>The project plan</h4>
+<h2>The project plan</h2>
 
 <p>
 
@@ -37,7 +39,7 @@ All of this is made possible using python and sql in the background.
 
 </p>
 
-<h4>KV code</h4>
+<h2>KV code</h2>
 
 <p>
 The GUI frontend is designed with Kivy.<br>
@@ -47,7 +49,7 @@ These screens are then linked with the python codes in the background,<br>the ba
 </p>
 
 
-<h4>Python code</h4>
+<h2>Python code</h2>
 
 <p>
 
@@ -85,10 +87,11 @@ However, it included:
 
 </p>
 
+<h2>Additional remarks</h2>
 
 <p>
 Since the project was discontinued and Intercars did not object to the publishing of<br>
-this body of work to illustrate my capabilities, in additions to me owning this project,
+this body of work to illustrate my capabilities, in additions to me owning this project,<br>
 I have decided to publish it publicly.
 
 <b>Note:</b> This project is part 2 of the discontinued project.<br>
